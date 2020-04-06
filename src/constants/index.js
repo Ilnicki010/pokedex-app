@@ -1,0 +1,1 @@
+export const SERVER_ERROR_MESSAGE = 'Can not fetch data from the server, try again later'
