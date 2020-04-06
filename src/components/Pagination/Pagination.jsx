@@ -1,25 +1,26 @@
-import React, { useEffect } from 'react';
-// import usePrevious from '../../hooks/usePrevious';
+import React from 'react';
 
-const Pagination = ({ activePage, allItems, getOffset }) => {
+import styles from './Pagination.module.scss';
+
+const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
   const pages = [];
-  for (let i = 1; i < Math.ceil(allItems / 50); i += 1) {
+  for (let i = 1; i < Math.ceil(allItems / maxPerPage); i += 1) {
     pages.push(i);
   }
   const handleClick = (pageN) => {
     if (pageN !== 1) {
-      getOffset(50 * pageN);
+      getOffset(maxPerPage * pageN);
     } else {
-      getOffset(0)
+      getOffset(0);
     }
   };
 
   return (
-    <nav>
-      <ul>
+    <nav className={styles.wrapper}>
+      <ul className={styles.list}>
         {pages.map((i) => (
-          <li>
-            <button type="button" onClick={() => handleClick(i)}>
+          <li className={styles.element}>
+            <button className={styles.button} type="button" onClick={() => handleClick(i)}>
               {i}
             </button>
           </li>

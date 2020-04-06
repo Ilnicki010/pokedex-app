@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { useUpdateEffect } from 'react-use';
 import usePokemonApi from '../../hooks/usePokemonApi';
 
 import List from '../../components/List/List';
@@ -41,6 +40,7 @@ export default function Home() {
           <Pagination
             allItems={pokemonsList.count}
             getOffset={(offset) => setCurrentPage(offset)}
+            maxPerPage={70}
           />
         </section>
       )}
