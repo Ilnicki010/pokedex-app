@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import { useUpdateEffect } from 'react-use';
-
-import List from '../../components/List/List';
-
 import usePokemonApi from '../../hooks/usePokemonApi';
 
+import List from '../../components/List/List';
+import Pagination from '../../components/Pagination/Pagination';
+
 export default function Home() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const [
     {
@@ -19,36 +19,31 @@ export default function Home() {
   ] = usePokemonApi();
 
   useEffect(() => {
-    doFetch(`${process.env.REACT_APP_API_URL}/pokemon?limit=20`);
+    doFetch(`${process.env.REACT_APP_API_URL}/pokemon?limit=50`);
   }, [doFetch]);
 
-  useUpdateEffect(() => {
-    doFetch(pokemonsList.next);
+  useEffect(() => {
+    doFetch(`${process.env.REACT_APP_API_URL}/pokemon?offset=${currentPage}&limit=50`);
   }, [currentPage]);
-
-  const moveForwards = () => {
-    setCurrentPage((page) => page + 1);
-  };
-  const moveBackwards = () => {
-    setCurrentPage((page) => page - 1);
-  };
 
   return (
     <main>
       {errorValue && <span>Somthing went wrong... error message: {errorMessage}</span>}
       <header>
         <h1>All Pokemons</h1>
-        {currentPage}
-        {isLoading ? <span>loading...</span> : <List pokemons={pokemonsList} />}
       </header>
-      <section>
-        <button type="button" onClick={moveForwards}>
-          next
-        </button>
-        <button type="button" onClick={moveBackwards}>
-          previous
-        </button>
-      </section>
+      {currentPage}
+      {isLoading ? (
+        <span>loading...</span>
+      ) : (
+        <section>
+          <List pokemons={pokemonsList} />
+          <Pagination
+            allItems={pokemonsList.count}
+            getOffset={(offset) => setCurrentPage(offset)}
+          />
+        </section>
+      )}
     </main>
   );
 }
