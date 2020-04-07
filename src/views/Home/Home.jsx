@@ -10,7 +10,7 @@ export default function Home() {
 
   const [
     {
-      data: pokemonsList,
+      data: { count:pokemonsCount, results:pokemonsList },
       isLoading,
       error: { value: errorValue, message: errorMessage },
     },
@@ -18,11 +18,11 @@ export default function Home() {
   ] = usePokemonApi();
 
   useEffect(() => {
-    doFetch(`${process.env.REACT_APP_API_URL}/pokemon?limit=50`);
+    doFetch(`${process.env.REACT_APP_API_URL}/pokemon?limit=200`);
   }, [doFetch]);
 
   useEffect(() => {
-    doFetch(`${process.env.REACT_APP_API_URL}/pokemon?offset=${currentPage}&limit=50`);
+    doFetch(`${process.env.REACT_APP_API_URL}/pokemon?offset=${currentPage}&limit=200`);
   }, [currentPage]);
 
   return (
@@ -32,16 +32,12 @@ export default function Home() {
         <h1>All Pokemons</h1>
       </header>
       {currentPage}
+      <Pagination allItems={pokemonsCount} getOffset={(offset) => setCurrentPage(offset)} maxPerPage={200} activePage={currentPage}/>
       {isLoading ? (
         <span>loading...</span>
       ) : (
         <section>
           <List pokemons={pokemonsList} />
-          <Pagination
-            allItems={pokemonsList.count}
-            getOffset={(offset) => setCurrentPage(offset)}
-            maxPerPage={70}
-          />
         </section>
       )}
     </main>

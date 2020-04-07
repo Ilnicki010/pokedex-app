@@ -8,7 +8,7 @@ console.log('list');
     return(
        <ul>
            {
-               pokemons.results && pokemons.results.map(el => (<Element key={el.name} pokemon={el}/>))
+               pokemons && pokemons.map(el => (<Element key={el.name} pokemon={el}/>))
            }
        </ul>
     )

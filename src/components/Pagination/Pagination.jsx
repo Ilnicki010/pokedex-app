@@ -4,20 +4,37 @@ import styles from './Pagination.module.scss';
 
 const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
   const pages = [];
-  for (let i = 1; i < Math.ceil(allItems / maxPerPage); i += 1) {
+  const pagesNumber = Math.ceil(allItems / maxPerPage);
+  for (let i = 1; i <= pagesNumber; i += 1) {
     pages.push(i);
   }
   const handleClick = (pageN) => {
-    if (pageN !== 1) {
-      getOffset(maxPerPage * pageN);
-    } else {
+    if (pageN === 1) {
       getOffset(0);
+    } else {
+      getOffset(maxPerPage * pageN - maxPerPage);
     }
+  };
+
+  const moveForwards = () => {
+    const calculatedOffset = activePage + maxPerPage;
+    if (calculatedOffset <= pagesNumber * maxPerPage - maxPerPage)
+      getOffset(calculatedOffset);
+  };
+
+  const moveBackwards = () => {
+    const calculatedOffset = activePage - maxPerPage;
+    if (calculatedOffset >= 0) getOffset(calculatedOffset);
   };
 
   return (
     <nav className={styles.wrapper}>
       <ul className={styles.list}>
+        <li className={styles.element}>
+          <button className={styles.button} onClick={moveBackwards} type="button">
+            Prev
+          </button>
+        </li>
         {pages.map((i) => (
           <li className={styles.element}>
             <button className={styles.button} type="button" onClick={() => handleClick(i)}>
@@ -25,6 +42,11 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
             </button>
           </li>
         ))}
+        <li className={styles.element}>
+          <button className={styles.button} onClick={moveForwards} type="button">
+            Next
+          </button>
+        </li>
       </ul>
     </nav>
   );
