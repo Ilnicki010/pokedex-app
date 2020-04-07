@@ -27,23 +27,26 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
     if (calculatedOffset >= 0) getOffset(calculatedOffset);
   };
 
+  const activePageIndex = (activePage + maxPerPage) / maxPerPage;
+
   return (
     <nav className={styles.wrapper}>
+        {activePageIndex}
       <ul className={styles.list}>
         <li className={styles.element}>
-          <button className={styles.button} onClick={moveBackwards} type="button">
+          <button className={styles.buttonSpecial} onClick={moveBackwards} type="button">
             Prev
           </button>
         </li>
         {pages.map((i) => (
-          <li className={styles.element}>
-            <button className={styles.button} type="button" onClick={() => handleClick(i)}>
+          <li className={activePageIndex === i ? styles.elementActive : styles.element}>
+            <button className={styles.button}  type="button" onClick={() => handleClick(i)}>
               {i}
             </button>
           </li>
         ))}
         <li className={styles.element}>
-          <button className={styles.button} onClick={moveForwards} type="button">
+          <button className={styles.buttonSpecial} onClick={moveForwards} type="button">
             Next
           </button>
         </li>

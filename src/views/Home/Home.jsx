@@ -10,7 +10,7 @@ export default function Home() {
 
   const [
     {
-      data: { count:pokemonsCount, results:pokemonsList },
+      data: { count: pokemonsCount, results: pokemonsList },
       isLoading,
       error: { value: errorValue, message: errorMessage },
     },
@@ -32,7 +32,12 @@ export default function Home() {
         <h1>All Pokemons</h1>
       </header>
       {currentPage}
-      <Pagination allItems={pokemonsCount} getOffset={(offset) => setCurrentPage(offset)} maxPerPage={200} activePage={currentPage}/>
+      <Pagination
+        allItems={pokemonsCount}
+        getOffset={(offset) => setCurrentPage(offset)}
+        maxPerPage={200}
+        activePage={currentPage}
+      />
       {isLoading ? (
         <span>loading...</span>
       ) : (
