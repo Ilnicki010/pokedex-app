@@ -31,7 +31,6 @@ export default function Home() {
       <header>
         <h1>All Pokemons</h1>
       </header>
-      {currentPage}
       <Pagination
         allItems={pokemonsCount}
         getOffset={(offset) => setCurrentPage(offset)}

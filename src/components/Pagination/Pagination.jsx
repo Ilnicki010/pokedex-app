@@ -18,8 +18,7 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
 
   const moveForwards = () => {
     const calculatedOffset = activePage + maxPerPage;
-    if (calculatedOffset <= pagesNumber * maxPerPage - maxPerPage)
-      getOffset(calculatedOffset);
+    if (calculatedOffset <= pagesNumber * maxPerPage - maxPerPage) getOffset(calculatedOffset);
   };
 
   const moveBackwards = () => {
@@ -31,7 +30,6 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
 
   return (
     <nav className={styles.wrapper}>
-        {activePageIndex}
       <ul className={styles.list}>
         <li className={styles.element}>
           <button className={styles.buttonSpecial} onClick={moveBackwards} type="button">
@@ -40,7 +38,7 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
         </li>
         {pages.map((i) => (
           <li className={activePageIndex === i ? styles.elementActive : styles.element}>
-            <button className={styles.button}  type="button" onClick={() => handleClick(i)}>
+            <button className={styles.button} type="button" onClick={() => handleClick(i)}>
               {i}
             </button>
           </li>
