@@ -1,32 +1,32 @@
+@import '../../../assets/scss/variables.scss';
+@import '../../../assets/scss/mixins.scss';
+
+
 .elementWrapper{
+    @include box-shadow(2px,0,10px,2px,rgba(#333,0.2));
     border-radius: 10px;
-    box-shadow: 2px 0 10px 2px rgba($color: #333, $alpha: 0.2);
     display: grid;
     grid-template-columns: 100px 1fr;
     .content{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+        @include flex(flex-start);
         .name{
-            font-weight: 700;
+            font-weight: $semi-bold;
             text-transform: capitalize;
         }
         .xpPoints{
-            opacity: .5;
-            font-size: .8em;
+            opacity: $half-ivisible;
+            font-size: $small;
         }
         .tagsList{
-            display: inline-flex;
-            justify-content: space-around;
+            @include flex(flex-start,align-items,row);
             margin-top: 10px;
             .tag{
                 margin-right: 5px;
                 border-radius: 3px;
                 padding: 2px 4px;
-                color: #fff;
+                color: $white;
                 text-transform: capitalize;
-                font-size: .7em;
+                font-size: $small;
             }
         }
     }
