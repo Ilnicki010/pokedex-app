@@ -1,0 +1,11 @@
+.listWrapper{
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap:1.4em;
+}
+@media screen and (min-width:720px){
+    .listWrapper{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
