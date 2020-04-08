@@ -33,7 +33,11 @@ export default function Element({ pokemon }) {
             <span className={styles.xpPoints}>{pokemonDetals.base_experience} xp</span>
             <ul className={styles.tagsList}>
               {pokemonDetals.types.map((type) => (
-                <li className={styles.tag} style={{ background: getColorByTag(type.type.name) }}>
+                <li
+                  key={type.type.name}
+                  className={styles.tag}
+                  style={{ background: getColorByTag(type.type.name) }}
+                >
                   {type.type.name}
                 </li>
               ))}

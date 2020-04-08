@@ -5,6 +5,8 @@ import usePokemonApi from '../../hooks/usePokemonApi';
 import List from '../../components/List/List';
 import Pagination from '../../components/Pagination/Pagination';
 
+// import Filters from '../../components/Filters/Filters';
+
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -18,12 +20,8 @@ export default function Home() {
   ] = usePokemonApi();
 
   useEffect(() => {
-    doFetch(`${process.env.REACT_APP_API_URL}/pokemon?limit=200`);
-  }, [doFetch]);
-
-  useEffect(() => {
     doFetch(`${process.env.REACT_APP_API_URL}/pokemon?offset=${currentPage}&limit=200`);
-  }, [currentPage]);
+  }, [currentPage, doFetch]);
 
   return (
     <main>
@@ -31,6 +29,7 @@ export default function Home() {
       <header>
         <h1>All Pokemons</h1>
       </header>
+      {/* <Filters getFiltredArray={handleFilters}/> */}
       <Pagination
         allItems={pokemonsCount}
         getOffset={(offset) => setCurrentPage(offset)}

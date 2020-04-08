@@ -37,7 +37,7 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
           </button>
         </li>
         {pages.map((i) => (
-          <li className={activePageIndex === i ? styles.elementActive : styles.element}>
+          <li key={i} className={activePageIndex === i ? styles.elementActive : styles.element}>
             <button className={styles.button} type="button" onClick={() => handleClick(i)}>
               {i}
             </button>
