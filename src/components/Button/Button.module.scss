@@ -1,0 +1,24 @@
+@import '../../assets/scss/variables.scss';
+
+.button{
+    cursor: pointer;
+    font-weight: $semi-bold;
+    color:$white;
+    background:$primary;
+    padding: 10px 20px;
+    font-size: $small;
+    border-radius: $default_radius;
+    border: none;
+    text-decoration: none;
+    transition: background-color .2s linear;
+    &:hover{
+        background: $black;
+    }
+    &Secondary{
+        @extend .button;
+        border: 2px solid $primary;
+        color: $primary;
+        background: none;
+        border:none;
+    }
+}

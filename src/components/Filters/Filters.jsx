@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { POKEMONS_TYPES } from '../../constants/index';
 
+import Button from '../Button/Button';
+
 import styles from './Filters.module.scss';
 
 export default function Filters({ getFiltredArray }) {
@@ -23,7 +25,7 @@ export default function Filters({ getFiltredArray }) {
           <option value={el.id}>{el.name}</option>
         ))}
       </select>
-      <button className={styles.button} type="submit">Filter</button>
+      <Button type="submit">Filter</Button>
     </form>
   );
 }
