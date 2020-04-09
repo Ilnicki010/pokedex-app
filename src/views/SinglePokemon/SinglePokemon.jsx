@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import Axios from 'axios';
 
 import styles from './SinglePokemon.module.scss';
 
-import Tags from '../../components/Tags/Tags'
+import Tags from '../../components/Tags/Tags';
+import Button from '../../components/Button/Button';
 
 export default function SinglePokemon() {
   const { id } = useParams();
-
+  const history = useHistory();
   const [currentPokemon, setCurrentPokemon] = useState(null);
 
   useEffect(() => {
@@ -22,7 +23,13 @@ export default function SinglePokemon() {
       {currentPokemon ? (
         <>
           <nav>
-            <Link to="/">Back</Link>
+            <Button
+              onClick={() => {
+                history.goBack();
+              }}
+            >
+              Back
+            </Button>
           </nav>
           <header className={styles.mainHeader}>
             <div className={styles.image}>
@@ -38,7 +45,7 @@ export default function SinglePokemon() {
               />
             </div>
             <h1 className={styles.name}>{currentPokemon.name}</h1>
-            <Tags typesList={currentPokemon.types}/>
+            <Tags typesList={currentPokemon.types} />
           </header>
           <div className={styles.content}>
             <section>

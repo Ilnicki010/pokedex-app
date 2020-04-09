@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
+
 import Home from './views/Home/Home';
 import SinglePokemon from './views/SinglePokemon/SinglePokemon';
 
@@ -8,10 +10,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
+        <CacheSwitch>
           <Route path="/pokemon/:id" exact component={SinglePokemon} />
-          <Route path="/" exact component={Home} />
-        </Switch>
+          <CacheRoute path="/" exact component={Home} />
+        </CacheSwitch>
       </Router>
     </div>
   );
