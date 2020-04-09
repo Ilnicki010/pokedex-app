@@ -28,6 +28,7 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
 
   const activePageIndex = (activePage + maxPerPage) / maxPerPage;
 
+
   return (
     <nav className={styles.wrapper}>
       <ul className={styles.list}>
