@@ -1,10 +1,20 @@
 import React from 'react';
-import Home from './views/Home/Home'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
+
+import Home from './views/Home/Home';
+import SinglePokemon from './views/SinglePokemon/SinglePokemon';
+
 
 function App() {
   return (
     <div className="App">
-        <Home/>
+      <Router>
+        <CacheSwitch>
+          <Route path="/pokemon/:id" exact component={SinglePokemon} />
+          <CacheRoute path="/" exact component={Home} />
+        </CacheSwitch>
+      </Router>
     </div>
   );
 }

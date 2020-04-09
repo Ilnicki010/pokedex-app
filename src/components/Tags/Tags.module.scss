@@ -1,0 +1,15 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.tagsList{
+    @include flex(flex-start,align-items,row);
+    margin-top: 10px;
+    .tag{
+        margin-right: 5px;
+        border-radius: 3px;
+        padding: 2px 4px;
+        color: $white;
+        text-transform: capitalize;
+        font-size: $small;
+    }
+}

@@ -1,13 +1,18 @@
 @import '../../../assets/scss/variables.scss';
 @import '../../../assets/scss/mixins.scss';
 
-
 .elementWrapper{
     @include box-shadow(2px,0,10px,2px,rgba(#333,0.2));
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 100px auto;
     grid-gap: 10px;
+    text-decoration: none;
+    color: $black;
+    transition: transform .2s ease-in-out;
+    &:hover{
+        transform: translateY(-10px);
+    }
     .content{
         @include flex(flex-start);
         .name{
@@ -18,17 +23,6 @@
             opacity: $half-ivisible;
             font-size: $small;
         }
-        .tagsList{
-            @include flex(flex-start,align-items,row);
-            margin-top: 10px;
-            .tag{
-                margin-right: 5px;
-                border-radius: 3px;
-                padding: 2px 4px;
-                color: $white;
-                text-transform: capitalize;
-                font-size: $small;
-            }
-        }
+        
     }
 }
