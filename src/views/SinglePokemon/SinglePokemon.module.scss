@@ -1,0 +1,65 @@
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
+
+.wrapper{
+   
+}
+
+.mainHeader{
+    @include flex(center,center);
+    .image{
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            top:-5vh;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            z-index: -999;
+            border-radius:0 0 50% 50%;
+            background: rgba($primary,$half-ivisible);
+           
+        }
+        animation: slide .6s forwards;
+    }
+    .name{
+        text-transform: capitalize;
+    }
+}
+.content{
+    padding: 5vh 5vw;
+
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 10px;
+  }
+  th{
+      background: #eee;
+      padding: 15px;
+      
+  }
+  td{
+      padding: 10px;
+  }
+  table, th, td {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+
+@keyframes slide{
+    from{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

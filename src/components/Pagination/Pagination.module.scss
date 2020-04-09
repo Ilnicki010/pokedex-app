@@ -7,7 +7,6 @@
   padding: 0;
   list-style-type: none;
   .element {
-    padding: 0 10px;
     border-right: 1px solid #eee;
     &:last-child {
       border-right: none;
@@ -23,8 +22,8 @@
   border: none;
   box-shadow: none;
   height: 48px;
+
   font-size: $small;
-  cursor: pointer;
   &Special {
     @extend .button;
     font-weight: 700;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import Axios from 'axios';
 
 import { POKEMONS_TYPES } from '../../../constants/index';
@@ -21,7 +22,8 @@ export default function Element({ pokemon }) {
   return (
     <>
       {pokemonDetals && (
-        <li className={styles.elementWrapper}>
+        <li>
+          <Link className={styles.elementWrapper} to={`pokemon/${pokemonDetals.id}`}>
           <img
             src={
               pokemonDetals.sprites.front_default
@@ -47,6 +49,7 @@ export default function Element({ pokemon }) {
               ))}
             </ul>
           </div>
+          </Link>
         </li>
       )}
     </>
