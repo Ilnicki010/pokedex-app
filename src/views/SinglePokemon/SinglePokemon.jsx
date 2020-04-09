@@ -24,6 +24,7 @@ export default function SinglePokemon() {
         <>
           <nav>
             <Button
+            secondary
               onClick={() => {
                 history.goBack();
               }}

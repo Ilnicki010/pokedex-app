@@ -1,16 +1,13 @@
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/variables.scss';
 
-.filterWrapper{
-    .selectFilter{
-        border:2px solid $primary;
-        color: $primary;
-        font-size: $small;
-        padding: 10px;
-        border-radius: $default_radius;
-        text-transform: capitalize;
-        width: 100px;
-        background: transparent;
-        margin: 0 10px;
-    }
+.selectFilter {
+  border: 2px solid $primary;
+  color: $primary;
+  font-size: $regular;
+  padding: 7px 10px;
+  border-radius: $default_radius;
+  text-transform: capitalize;
+  background: transparent;
+  margin: 0 10px;
 }

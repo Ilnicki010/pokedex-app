@@ -2,27 +2,31 @@
 @import '../../assets/scss/mixins.scss';
 
 .wrapper{
-   
+   display: grid;
+   grid-template-rows: 40px auto auto;
 }
 
 .mainHeader{
     @include flex(center,center);
     .image{
+        @include flex(center,center);
         position: relative;
         &::after{
             content: '';
             position: absolute;
-            top:-5vh;
+            top:-40px;
             left: 0;
             right: 0;
-            bottom: 0;
             margin: auto;
-            width: 100%;
+            width: 90%;
             height: 100%;
             z-index: -999;
             border-radius:0 0 50% 50%;
             background: rgba($primary,$half-ivisible);
-           
+                   }
+        img{
+            animation: slide .6s forwards;
+
         }
         animation: slide .6s forwards;
     }
