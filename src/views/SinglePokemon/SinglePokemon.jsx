@@ -4,6 +4,8 @@ import Axios from 'axios';
 
 import styles from './SinglePokemon.module.scss';
 
+import Tags from '../../components/Tags/Tags'
+
 export default function SinglePokemon() {
   const { id } = useParams();
 
@@ -36,10 +38,11 @@ export default function SinglePokemon() {
               />
             </div>
             <h1 className={styles.name}>{currentPokemon.name}</h1>
+            <Tags typesList={currentPokemon.types}/>
           </header>
           <div className={styles.content}>
             <section>
-              <h2>Basic info</h2>
+              <h2>About</h2>
               <table>
                 <caption />
                 <colgroup span="3" />
