@@ -23,7 +23,11 @@ export default function Element({ pokemon }) {
       {pokemonDetals && (
         <li className={styles.elementWrapper}>
           <img
-            src={pokemonDetals.sprites.front_default}
+            src={
+              pokemonDetals.sprites.front_default
+                ? pokemonDetals.sprites.front_default
+                : 'https://via.placeholder.com/100'
+            }
             width="100px"
             height="100px"
             alt={`${pokemonDetals.name} pokemon`}

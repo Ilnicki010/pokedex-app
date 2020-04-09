@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import Axios from 'axios';
 
+import styles from './Home.module.scss';
+
+// import usePokemonApi from '../../hooks/usePokemonApi';
+
 import List from '../../components/List/List';
 import Pagination from '../../components/Pagination/Pagination';
 import Filters from '../../components/Filters/Filters';
@@ -9,7 +13,7 @@ import Filters from '../../components/Filters/Filters';
 import { SERVER_ERROR_MESSAGE } from '../../constants/index';
 
 export default function Home() {
-  const MAX_PER_PAGE = 50;
+  const MAX_PER_PAGE = 200;
 
   const [currentOffset, setCurrentOffset] = useState(0);
   const [filterId, setFilterId] = useState('all');
@@ -42,23 +46,30 @@ export default function Home() {
   }, [filterId]);
 
   return (
-    <main>
+    <main className={styles.wrapper}>
       {error && <span>Somthing went wrong... error message: {error}</span>}
-      <header>
+      <header className={styles.mainHeader}>
         <h1>All Pokemons</h1>
+        <Filters getFiltredArray={(id) => setFilterId(id)} />
       </header>
-      <Filters getFiltredArray={(id) => setFilterId(id)} />
       {pokemons ? (
-        <section>
+        <>
           <Pagination
             allItems={pokemons.count}
             getOffset={(offset) => setCurrentOffset(offset)}
             maxPerPage={MAX_PER_PAGE}
             activePage={currentOffset}
           />
-
-          <List pokemons={pokemons.pokemons} />
-        </section>
+          <section>
+            <List pokemons={pokemons.pokemons} />
+          </section>
+          <Pagination
+            allItems={pokemons.count}
+            getOffset={(offset) => setCurrentOffset(offset)}
+            maxPerPage={MAX_PER_PAGE}
+            activePage={currentOffset}
+          />
+        </>
       ) : (
         <span>loading...</span>
       )}

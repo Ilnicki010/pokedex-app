@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { POKEMONS_TYPES } from '../../constants/index';
 
+import styles from './Filters.module.scss';
+
 export default function Filters({ getFiltredArray }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
 
@@ -14,14 +16,14 @@ export default function Filters({ getFiltredArray }) {
   }
   
   return (
-    <form onSubmit={submitFilter}>
-      <select name="example" onChange={handleFilterChange} value={selectedFilter}>
+    <form onSubmit={submitFilter} className={styles.filterWrapper}>
+      <select name="example" onChange={handleFilterChange} value={selectedFilter} className={styles.selectFilter}>
         <option value='all'>all</option>
         {POKEMONS_TYPES.map((el) => (
           <option value={el.id}>{el.name}</option>
         ))}
       </select>
-      <button type="submit">filter</button>
+      <button className={styles.button} type="submit">Filter</button>
     </form>
   );
 }
