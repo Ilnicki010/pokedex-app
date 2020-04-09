@@ -20,8 +20,10 @@ const usePokemonApi = () => {
       setIsLoading(false);
     };
     fetchData();
+
   }, [url]);
   return [{ data, isLoading, error }, setUrl];
 };
 
 export default usePokemonApi;
+

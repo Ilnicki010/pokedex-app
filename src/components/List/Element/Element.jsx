@@ -23,7 +23,11 @@ export default function Element({ pokemon }) {
       {pokemonDetals && (
         <li className={styles.elementWrapper}>
           <img
-            src={pokemonDetals.sprites.front_default}
+            src={
+              pokemonDetals.sprites.front_default
+                ? pokemonDetals.sprites.front_default
+                : 'https://via.placeholder.com/100'
+            }
             width="100px"
             height="100px"
             alt={`${pokemonDetals.name} pokemon`}
@@ -33,7 +37,11 @@ export default function Element({ pokemon }) {
             <span className={styles.xpPoints}>{pokemonDetals.base_experience} xp</span>
             <ul className={styles.tagsList}>
               {pokemonDetals.types.map((type) => (
-                <li className={styles.tag} style={{ background: getColorByTag(type.type.name) }}>
+                <li
+                  key={type.type.name}
+                  className={styles.tag}
+                  style={{ background: getColorByTag(type.type.name) }}
+                >
                   {type.type.name}
                 </li>
               ))}
