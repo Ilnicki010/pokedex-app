@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Axios from 'axios';
 
 import styles from './SinglePokemon.module.scss';
 
 import Tags from '../../components/Tags/Tags';
 import Button from '../../components/Button/Button';
+import PokemonDetailsLoader from '../../components/ContentLoaders/PokemonDetailsLoader/PokemonDetailsLoader';
 
 export default function SinglePokemon() {
   const { id } = useParams();
@@ -24,7 +25,7 @@ export default function SinglePokemon() {
         <>
           <nav>
             <Button
-            secondary
+              secondary
               onClick={() => {
                 history.goBack();
               }}
@@ -101,7 +102,7 @@ export default function SinglePokemon() {
           </div>
         </>
       ) : (
-        <span>loading</span>
+        <PokemonDetailsLoader />
       )}
     </main>
   );

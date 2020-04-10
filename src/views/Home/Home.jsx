@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Axios from 'axios';
 
+
 import styles from './Home.module.scss';
 
 // import usePokemonApi from '../../hooks/usePokemonApi';
@@ -52,7 +53,7 @@ export default function Home() {
         <h1>All Pokemons</h1>
         <Filters getFiltredArray={(id) => setFilterId(id)} />
       </header>
-      {pokemons ? (
+      {pokemons && (
         <>
           <Pagination
             allItems={pokemons.count}
@@ -70,8 +71,6 @@ export default function Home() {
             activePage={currentOffset}
           />
         </>
-      ) : (
-        <span>loading...</span>
       )}
     </main>
   );
