@@ -6,7 +6,6 @@ import styles from './SinglePokemon.module.scss';
 
 import Tags from '../../components/Tags/Tags';
 import Button from '../../components/Button/Button';
-import PokemonDetailsLoader from '../../components/ContentLoaders/PokemonDetailsLoader/PokemonDetailsLoader';
 
 export default function SinglePokemon() {
   const { id } = useParams();
@@ -102,7 +101,7 @@ export default function SinglePokemon() {
           </div>
         </>
       ) : (
-        <PokemonDetailsLoader />
+        <span>loading...</span>
       )}
     </main>
   );

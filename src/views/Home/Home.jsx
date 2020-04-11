@@ -14,7 +14,7 @@ import Filters from '../../components/Filters/Filters';
 import { SERVER_ERROR_MESSAGE } from '../../constants/index';
 
 export default function Home() {
-  const MAX_PER_PAGE = 100;
+  const MAX_PER_PAGE = 160;
 
   const [currentOffset, setCurrentOffset] = useState(0);
   const [filterId, setFilterId] = useState('all');
