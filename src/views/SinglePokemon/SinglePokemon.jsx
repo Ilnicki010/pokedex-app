@@ -6,6 +6,7 @@ import styles from './SinglePokemon.module.scss';
 
 import Tags from '../../components/Tags/Tags';
 import Button from '../../components/Button/Button';
+import Evolution from '../../components/Evolution/Evolution';
 
 export default function SinglePokemon() {
   const { id } = useParams();
@@ -49,6 +50,10 @@ export default function SinglePokemon() {
             <Tags typesList={currentPokemon.types} />
           </header>
           <div className={styles.content}>
+            <section>
+              <h2>About</h2>
+              <Evolution specieUrl={currentPokemon.species.url} />
+            </section>
             <section>
               <h2>About</h2>
               <table>

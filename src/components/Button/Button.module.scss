@@ -20,5 +20,9 @@
         color: $primary;
         background: none;
         border:none;
+        &:hover{
+            color: $black;
+            background: transparent;
+        }
     }
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import Axios from 'axios';
 
-
 import styles from './Home.module.scss';
 
 // import usePokemonApi from '../../hooks/usePokemonApi';
