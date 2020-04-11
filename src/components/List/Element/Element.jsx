@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import Axios from 'axios';
+import ElementLoader from '../../ContentLoaders/ElementLoader/ElementLoader'
 
 
 import styles from './Element.module.scss';
@@ -17,7 +18,7 @@ export default function Element({ pokemon }) {
 
   return (
     <>
-      {pokemonDetals && (
+      {pokemonDetals ? (
         <li>
           <Link className={styles.elementWrapper} to={`pokemon/${pokemonDetals.id}`}>
           <img
@@ -37,7 +38,7 @@ export default function Element({ pokemon }) {
           </div>
           </Link>
         </li>
-      )}
+      ):(<ElementLoader/>)}
     </>
   );
 }

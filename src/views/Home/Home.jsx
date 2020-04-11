@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Axios from 'axios';
 
+
 import styles from './Home.module.scss';
 
 // import usePokemonApi from '../../hooks/usePokemonApi';
@@ -13,7 +14,7 @@ import Filters from '../../components/Filters/Filters';
 import { SERVER_ERROR_MESSAGE } from '../../constants/index';
 
 export default function Home() {
-  const MAX_PER_PAGE = 100;
+  const MAX_PER_PAGE = 160;
 
   const [currentOffset, setCurrentOffset] = useState(0);
   const [filterId, setFilterId] = useState('all');
@@ -52,7 +53,7 @@ export default function Home() {
         <h1>All Pokemons</h1>
         <Filters getFiltredArray={(id) => setFilterId(id)} />
       </header>
-      {pokemons ? (
+      {pokemons && (
         <>
           <Pagination
             allItems={pokemons.count}
@@ -70,8 +71,6 @@ export default function Home() {
             activePage={currentOffset}
           />
         </>
-      ) : (
-        <span>loading...</span>
       )}
     </main>
   );

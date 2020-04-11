@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Axios from 'axios';
 
 import styles from './SinglePokemon.module.scss';
@@ -24,7 +24,7 @@ export default function SinglePokemon() {
         <>
           <nav>
             <Button
-            secondary
+              secondary
               onClick={() => {
                 history.goBack();
               }}
@@ -101,7 +101,7 @@ export default function SinglePokemon() {
           </div>
         </>
       ) : (
-        <span>loading</span>
+        <span>loading...</span>
       )}
     </main>
   );
