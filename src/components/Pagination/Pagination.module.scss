@@ -2,18 +2,43 @@
 @import '../../assets/scss/mixins.scss';
 
 .list {
-  @include flex(center, center, row, no-wrap);
+  @include flex(center, center, row, wrap);
   margin: 0;
   padding: 0;
   list-style-type: none;
   .element {
-    border-right: 1px solid #eee;
-    &:last-child {
-      border-right: none;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    .button {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: color 0.25s linear, font-weight 0.25s;
+      cursor: pointer;
+      &::before {
+        content: '';
+        @include absolute-center;
+        border-radius: $circle_radius;
+        background-color: $white;
+        border: $light-border-width solid $black;
+        width: 80%;
+        height: 80%;
+        z-index: $background;
+        transition: transform 0.25s cubic-bezier(0.16, 1.14, 0.9, 1.42), background-color 0.25s linear;
+      }
     }
     &Active {
       @extend .element;
-      background: rgba($primary, $half-ivisible);
+      .button {
+        font-weight: $semi-bold;
+        color: $primary;
+        position: relative;
+        &::before {
+          background-color: $black;
+          transform: scale(0.8);
+        }
+      }
     }
   }
 }
@@ -21,11 +46,9 @@
   background: transparent;
   border: none;
   box-shadow: none;
-  height: 48px;
-
   font-size: $small;
   &Special {
     @extend .button;
-    font-weight: 700;
+    font-weight: $semi-bold;
   }
 }

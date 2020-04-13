@@ -1,22 +1,29 @@
 //colors
 $white: #fff;
 $black: #222;
-$primary:rgb(246, 135, 135);
+$primary: rgb(246, 135, 135);
 
 //fonts
-$small:0.7rem;
-$regular:1rem;
-$big:1.2rem;
-
+$small: 0.7rem;
+$regular: 1rem;
+$big: 1.2rem;
 
 //fonts weight
-$semi-bold:700;
-
+$semi-bold: 700;
 
 // opacity
-$invisible:0;
-$half-ivisible:.5;
-$visible:1;
+$invisible: 0;
+$half-ivisible: 0.5;
+$visible: 1;
 
 //border radius
-$default_radius:7px;
+$default_radius: 7px;
+$circle_radius: 50%;
+
+//border widths
+$light-border-width: 1px;
+$regular-border-width: 2px;
+
+//z-indexes
+$background: -9000;
+$foreground: 9000;

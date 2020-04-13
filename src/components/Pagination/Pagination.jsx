@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import styles from './Pagination.module.scss';
 
 const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
@@ -51,5 +53,12 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
       </ul>
     </nav>
   );
+};
+
+Pagination.propTypes = {
+  activePage: PropTypes.number.isRequired,
+  allItems: PropTypes.number.isRequired,
+  getOffset: PropTypes.func.isRequired,
+  maxPerPage: PropTypes.number.isRequired,
 };
 export default Pagination;
