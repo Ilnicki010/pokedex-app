@@ -11,7 +11,7 @@ export default function Filters({ getFiltredArray }) {
   };
 
   return (
-    <select name="example" onChange={handleFilterChange} className={styles.selectFilter}>
+    <select name="typesFilter" onChange={handleFilterChange} className={styles.selectFilter}>
       <option value="all">all</option>
       {POKEMONS_TYPES.map((el) => (
         <option key={el.id} value={el.id}>

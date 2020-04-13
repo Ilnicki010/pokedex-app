@@ -8,7 +8,7 @@ import List from '../../components/List/List';
 import Pagination from '../../components/Pagination/Pagination';
 import Filters from '../../components/Filters/Filters';
 
-import { SERVER_ERROR_MESSAGE } from '../../constants/index';
+import { SERVER_ERROR_MESSAGE, HOME_TEXTS } from '../../constants/index';
 
 export default function Home() {
   const MAX_PER_PAGE = 100;
@@ -47,7 +47,7 @@ export default function Home() {
     <main className={styles.wrapper}>
       {error && <span>Somthing went wrong... error message: {error}</span>}
       <header className={styles.mainHeader}>
-        <h1>All Pokemons</h1>
+        <h1>{HOME_TEXTS.title}</h1>
         <Filters getFiltredArray={(id) => setFilterId(id)} />
       </header>
       {pokemons.count && (

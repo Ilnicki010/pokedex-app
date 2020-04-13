@@ -8,6 +8,8 @@ import Tags from '../../components/Tags/Tags';
 import Button from '../../components/Button/Button';
 import SpecieInfo from '../../components/SpecieInfo/SpecieInfo';
 
+import { SINGLE_POKEMON_TEXTS } from '../../constants/index';
+
 export default function SinglePokemon() {
   const { id } = useParams();
   const history = useHistory();
@@ -30,7 +32,7 @@ export default function SinglePokemon() {
                 history.goBack();
               }}
             >
-              Back
+              {SINGLE_POKEMON_TEXTS.backButton}
             </Button>
           </nav>
           <header className={styles.mainHeader}>
@@ -39,7 +41,7 @@ export default function SinglePokemon() {
                 src={
                   currentPokemon.sprites.front_default
                     ? currentPokemon.sprites.front_default
-                    : 'https://via.placeholder.com/100'
+                    : 'https://via.placeholder.com/200'
                 }
                 width="200px"
                 height="200px"
@@ -51,11 +53,11 @@ export default function SinglePokemon() {
           </header>
           <div className={styles.content}>
             <section>
-              <h2>About</h2>
+              <h2>{SINGLE_POKEMON_TEXTS.aboutHeader}</h2>
               <SpecieInfo specieUrl={currentPokemon.species.url} />
             </section>
             <section>
-              <h2>Basic Info</h2>
+              <h2>{SINGLE_POKEMON_TEXTS.baseHeader}</h2>
               <table>
                 <caption />
                 <colgroup span="3" />
@@ -76,12 +78,12 @@ export default function SinglePokemon() {
               </table>
             </section>
             <section>
-              <h2>All info</h2>
+              <h2>{SINGLE_POKEMON_TEXTS.allHeader}</h2>
               <table summary="Column one has the location and size of accommodation, other columns show the type and number of properties available">
                 <caption />
                 <tbody>
                   <tr>
-                    <th id="par" className="span" colSpan="5" scope="colgroup">
+                    <th colSpan="5" scope="colgroup">
                       Abilities ({currentPokemon.abilities.length})
                     </th>
                   </tr>
@@ -91,7 +93,7 @@ export default function SinglePokemon() {
                     </tr>
                   ))}
                   <tr>
-                    <th id="rome" className="span" colSpan="5" scope="colgroup">
+                    <th colSpan="5" scope="colgroup">
                       Moves ({currentPokemon.moves.length})
                     </th>
                   </tr>

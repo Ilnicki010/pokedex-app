@@ -1,3 +1,12 @@
+export const SINGLE_POKEMON_TEXTS = {
+  backButton: 'Back',
+  aboutHeader: 'About',
+  baseHeader: 'Basic Info',
+  allHeader: 'All info',
+};
+export const HOME_TEXTS = {
+  title: 'Pokemons',
+};
 export const SERVER_ERROR_MESSAGE = 'Can not fetch data from the server, try again later';
 export const POKEMONS_TYPES = [
   {
