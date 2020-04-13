@@ -10,20 +10,22 @@
     position: relative;
     width: 48px;
     height: 48px;
+    margin: 3px;
     .button {
       position: relative;
       width: 100%;
       height: 100%;
-      transition: color 0.25s linear, font-weight 0.25s;
+      transition: color 0.25s linear, font-weight 0.25s, transform 0.15s ease-out;
       cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+      }
       &::before {
         content: '';
         @include absolute-center;
         border-radius: $circle_radius;
         background-color: $white;
         border: $light-border-width solid $black;
-        width: 80%;
-        height: 80%;
         z-index: $background;
         transition: transform 0.25s cubic-bezier(0.16, 1.14, 0.9, 1.42), background-color 0.25s linear;
       }

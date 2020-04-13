@@ -4,8 +4,6 @@ import Axios from 'axios';
 
 import styles from './Home.module.scss';
 
-// import usePokemonApi from '../../hooks/usePokemonApi';
-
 import List from '../../components/List/List';
 import Pagination from '../../components/Pagination/Pagination';
 import Filters from '../../components/Filters/Filters';
@@ -26,7 +24,7 @@ export default function Home() {
         .then((data) => {
           setPokemons({ pokemons: data.data.results, count: data.data.count });
         })
-        .catch((err) => setError(SERVER_ERROR_MESSAGE));
+        .catch(() => setError(SERVER_ERROR_MESSAGE));
     } else {
       Axios.get(`${process.env.REACT_APP_API_URL}/type/${filterId}`)
         .then((data) => {
@@ -37,7 +35,7 @@ export default function Home() {
             count: formattedPokemons.length,
           });
         })
-        .catch((err) => setError(SERVER_ERROR_MESSAGE));
+        .catch(() => setError(SERVER_ERROR_MESSAGE));
     }
   }, [currentOffset, filterId]);
 
@@ -52,7 +50,7 @@ export default function Home() {
         <h1>All Pokemons</h1>
         <Filters getFiltredArray={(id) => setFilterId(id)} />
       </header>
-      {pokemons && (
+      {pokemons.count && (
         <>
           <Pagination
             allItems={pokemons.count}

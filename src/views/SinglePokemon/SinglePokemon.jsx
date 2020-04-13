@@ -55,7 +55,7 @@ export default function SinglePokemon() {
               <SpecieInfo specieUrl={currentPokemon.species.url} />
             </section>
             <section>
-              <h2>About</h2>
+              <h2>Basic Info</h2>
               <table>
                 <caption />
                 <colgroup span="3" />
@@ -86,7 +86,7 @@ export default function SinglePokemon() {
                     </th>
                   </tr>
                   {currentPokemon.abilities.map((el) => (
-                    <tr>
+                    <tr key={el.ability.name}>
                       <td>{el.ability.name}</td>
                     </tr>
                   ))}
@@ -96,7 +96,7 @@ export default function SinglePokemon() {
                     </th>
                   </tr>
                   {currentPokemon.moves.map((el) => (
-                    <tr>
+                    <tr key={el.move.name}>
                       <td>{el.move.name}</td>
                     </tr>
                   ))}
