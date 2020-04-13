@@ -1,0 +1,17 @@
+.infoTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+.infoTableTh {
+  background: #eee;
+  padding: 15px;
+}
+.infoTableTd {
+  padding: 10px;
+}
+.infoTable,
+.infoTableTh,
+.infoTableTd {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}

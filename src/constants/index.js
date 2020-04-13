@@ -7,6 +7,17 @@ export const SINGLE_POKEMON_TEXTS = {
 export const HOME_TEXTS = {
   title: 'Pokemons',
 };
+export const BASIC_TABLE_TEXTS = {
+  tableSummary: 'The table presents basic information about the currently displayed pokemon.',
+  baseXpHeader: 'Base xp',
+  heightHeader: 'Height',
+  weightHeader: 'Weight',
+};
+export const DETAILS_TABLE_TEXTS = {
+  tableSummary: 'The table presents detailed information about the currently displayed pokemon.',
+  movesHeader: 'Moves',
+  abilitiesHeader: 'Abilities',
+};
 export const SERVER_ERROR_MESSAGE = 'Can not fetch data from the server, try again later';
 export const POKEMONS_TYPES = [
   {
