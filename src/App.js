@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 
 import Home from './views/Home/Home';
 import SinglePokemon from './views/SinglePokemon/SinglePokemon';
-
 
 function App() {
   return (
