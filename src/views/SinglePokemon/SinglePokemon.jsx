@@ -6,7 +6,7 @@ import styles from './SinglePokemon.module.scss';
 
 import Tags from '../../components/Tags/Tags';
 import Button from '../../components/Button/Button';
-import Evolution from '../../components/Evolution/Evolution';
+import SpecieInfo from '../../components/SpecieInfo/SpecieInfo';
 
 export default function SinglePokemon() {
   const { id } = useParams();
@@ -17,7 +17,7 @@ export default function SinglePokemon() {
     Axios.get(`${process.env.REACT_APP_API_URL}/pokemon/${id}`).then((data) => {
       setCurrentPokemon(data.data);
     });
-  }, []);
+  }, [id]);
 
   return (
     <main className={styles.wrapper}>
@@ -52,7 +52,7 @@ export default function SinglePokemon() {
           <div className={styles.content}>
             <section>
               <h2>About</h2>
-              <Evolution specieUrl={currentPokemon.species.url} />
+              <SpecieInfo specieUrl={currentPokemon.species.url} />
             </section>
             <section>
               <h2>About</h2>

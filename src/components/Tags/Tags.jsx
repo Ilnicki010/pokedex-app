@@ -22,6 +22,8 @@ function Tags({ typesList }) {
   );
 }
 
-Tags.propTypes = {};
+Tags.propTypes = {
+  typesList: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default Tags;

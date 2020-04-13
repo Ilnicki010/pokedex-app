@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
 
-import styles from './Evolution.module.scss';
+import styles from './SpecieInfo.module.scss';
 
 function Evolution({ specieUrl }) {
   const [specieInfo, setSpecieInfo] = useState(null);
@@ -22,10 +22,14 @@ function Evolution({ specieUrl }) {
       {specieInfo && (
         <article>
           <p>{getEnglishText(specieInfo.flavor_text_entries).flavor_text}</p>
-          <p>
-            Evolutes from{' '}
-            <span className={styles.specialText}>{specieInfo.evolves_from_species.name || ''}</span>
-          </p>
+          {specieInfo.evolves_from_species ? (
+            <p>
+              Evolutes from{' '}
+              <span className={styles.specialText}> {specieInfo.evolves_from_species.name}</span>
+            </p>
+          ) : (
+            <p>First stage of an evolution</p>
+          )}
         </article>
       )}
     </>
