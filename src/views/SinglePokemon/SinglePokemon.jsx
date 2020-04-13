@@ -7,6 +7,8 @@ import styles from './SinglePokemon.module.scss';
 import Tags from '../../components/Tags/Tags';
 import Button from '../../components/Button/Button';
 import SpecieInfo from '../../components/SpecieInfo/SpecieInfo';
+import BasicInfo from '../../components/BasicInfo/BasicInfo';
+import DetailsInfo from '../../components/DetailsInfo/DetailsInfo';
 
 import { SINGLE_POKEMON_TEXTS } from '../../constants/index';
 
@@ -58,52 +60,15 @@ export default function SinglePokemon() {
             </section>
             <section>
               <h2>{SINGLE_POKEMON_TEXTS.baseHeader}</h2>
-              <table>
-                <caption />
-                <colgroup span="3" />
-                <thead>
-                  <tr>
-                    <th scope="col">Base xp</th>
-                    <th scope="col">Weight</th>
-                    <th scope="col">Height</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{currentPokemon.base_experience}</td>
-                    <td>{currentPokemon.weight}</td>
-                    <td>{currentPokemon.height}</td>
-                  </tr>
-                </tbody>
-              </table>
+              <BasicInfo
+                baseXp={currentPokemon.base_experience}
+                height={currentPokemon.height}
+                weight={currentPokemon.weight}
+              />
             </section>
             <section>
               <h2>{SINGLE_POKEMON_TEXTS.allHeader}</h2>
-              <table summary="Column one has the location and size of accommodation, other columns show the type and number of properties available">
-                <caption />
-                <tbody>
-                  <tr>
-                    <th colSpan="5" scope="colgroup">
-                      Abilities ({currentPokemon.abilities.length})
-                    </th>
-                  </tr>
-                  {currentPokemon.abilities.map((el) => (
-                    <tr key={el.ability.name}>
-                      <td>{el.ability.name}</td>
-                    </tr>
-                  ))}
-                  <tr>
-                    <th colSpan="5" scope="colgroup">
-                      Moves ({currentPokemon.moves.length})
-                    </th>
-                  </tr>
-                  {currentPokemon.moves.map((el) => (
-                    <tr key={el.move.name}>
-                      <td>{el.move.name}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <DetailsInfo moves={currentPokemon.moves} abilities={currentPokemon.abilities} />
             </section>
           </div>
         </>
