@@ -32,9 +32,14 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
 
   return (
     <nav className={styles.wrapper}>
-      <ul className={styles.list}>
+      <ul data-testid="pagesList" className={styles.list}>
         <li className={styles.element}>
-          <button className={styles.buttonSpecial} onClick={moveBackwards} type="button">
+          <button
+            data-testid="prevButton"
+            className={styles.buttonSpecial}
+            onClick={moveBackwards}
+            type="button"
+          >
             Prev
           </button>
         </li>
@@ -46,7 +51,12 @@ const Pagination = ({ activePage, allItems, getOffset, maxPerPage }) => {
           </li>
         ))}
         <li className={styles.element}>
-          <button className={styles.buttonSpecial} onClick={moveForwards} type="button">
+          <button
+            data-testid="nextButton"
+            className={styles.buttonSpecial}
+            onClick={moveForwards}
+            type="button"
+          >
             Next
           </button>
         </li>
