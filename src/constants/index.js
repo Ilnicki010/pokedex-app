@@ -18,6 +18,10 @@ export const DETAILS_TABLE_TEXTS = {
   movesHeader: 'Moves',
   abilitiesHeader: 'Abilities',
 };
+export const SPECIE_INFO_TEXTS = {
+  firstEvolutionStage: 'That is the first stage of the evolution.',
+  evolutesFrom: 'Evolutes from: ',
+};
 export const SERVER_ERROR_MESSAGE = 'Can not fetch data from the server, try again later';
 export const POKEMONS_TYPES = [
   {
