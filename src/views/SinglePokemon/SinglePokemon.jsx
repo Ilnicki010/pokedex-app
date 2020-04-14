@@ -10,7 +10,7 @@ import SpecieInfo from '../../components/SpecieInfo/SpecieInfo';
 import BasicInfo from '../../components/BasicInfo/BasicInfo';
 import DetailsInfo from '../../components/DetailsInfo/DetailsInfo';
 
-import { SINGLE_POKEMON_TEXTS } from '../../constants/index';
+import { SINGLE_POKEMON_TEXTS, API_URL } from '../../constants/index';
 
 export default function SinglePokemon() {
   const { id } = useParams();
@@ -18,7 +18,7 @@ export default function SinglePokemon() {
   const [currentPokemon, setCurrentPokemon] = useState(null);
 
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_API_URL}/pokemon/${id}`).then((data) => {
+    Axios.get(`${API_URL}/pokemon/${id}`).then((data) => {
       setCurrentPokemon(data.data);
     });
   }, [id]);

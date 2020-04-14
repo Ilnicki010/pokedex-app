@@ -8,7 +8,7 @@ import List from '../../components/List/List';
 import Pagination from '../../components/Pagination/Pagination';
 import Filters from '../../components/Filters/Filters';
 
-import { SERVER_ERROR_MESSAGE, HOME_TEXTS } from '../../constants/index';
+import { SERVER_ERROR_MESSAGE, HOME_TEXTS, API_URL } from '../../constants/index';
 
 export default function Home() {
   const MAX_PER_PAGE = 100;
@@ -20,13 +20,13 @@ export default function Home() {
 
   useEffect(() => {
     if (filterId === 'all') {
-      Axios.get(`${process.env.REACT_APP_API_URL}/pokemon?offset=${currentOffset}&limit=${MAX_PER_PAGE}`)
+      Axios.get(`${API_URL}/pokemon?offset=${currentOffset}&limit=${MAX_PER_PAGE}`)
         .then((data) => {
           setPokemons({ pokemons: data.data.results, count: data.data.count });
         })
         .catch(() => setError(SERVER_ERROR_MESSAGE));
     } else {
-      Axios.get(`${process.env.REACT_APP_API_URL}/type/${filterId}`)
+      Axios.get(`${API_URL}/type/${filterId}`)
         .then((data) => {
           const formattedPokemons = [];
           data.data.pokemon.map((el) => formattedPokemons.push(el.pokemon));

@@ -121,3 +121,4 @@ export const POKEMONS_TYPES = [
     id: 10002,
   },
 ];
+export const API_URL = 'https://pokeapi.co/api/v2';
