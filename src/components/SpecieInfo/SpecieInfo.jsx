@@ -8,9 +8,13 @@ function Evolution({ specieUrl }) {
   const [specieInfo, setSpecieInfo] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
     Axios.get(specieUrl).then((data) => {
-      setSpecieInfo(data.data);
+      if (isMounted) setSpecieInfo(data.data);
     });
+    return () => {
+      isMounted = false;
+    };
   }, [specieUrl]);
 
   const getEnglishText = (flavorTextArray) => {
@@ -21,14 +25,14 @@ function Evolution({ specieUrl }) {
     <>
       {specieInfo && (
         <article>
-          <p>{getEnglishText(specieInfo.flavor_text_entries).flavor_text}</p>
+          <p data-testid="specieDescription">{getEnglishText(specieInfo.flavor_text_entries).flavor_text}</p>
           {specieInfo.evolves_from_species ? (
-            <p>
+            <p data-testid="evolutionText">
               Evolutes from{' '}
               <span className={styles.specialText}> {specieInfo.evolves_from_species.name}</span>
             </p>
           ) : (
-            <p>First stage of an evolution</p>
+            <p data-testid="evolutionText">First stage of an evolution</p>
           )}
         </article>
       )}
