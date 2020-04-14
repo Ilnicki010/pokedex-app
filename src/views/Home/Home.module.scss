@@ -1,12 +1,12 @@
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/variables.scss';
 
-.wrapper{
-    padding: 5vh 5vw;
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    grid-gap: 30px;
+.wrapper {
+  padding: 5vh 5vw;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-gap: 30px;
 }
-.mainHeader{
-    @include flex(center,space-between,row,wrap);
+.mainHeader {
+  @include flex(center, space-between, row, wrap);
 }

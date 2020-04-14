@@ -11,14 +11,22 @@ export default function Filters({ getFiltredArray }) {
   };
 
   return (
-    <select name="typesFilter" onChange={handleFilterChange} className={styles.selectFilter}>
-      <option value="all">all</option>
-      {POKEMONS_TYPES.map((el) => (
-        <option key={el.id} value={el.id}>
-          {el.name}
-        </option>
-      ))}
-    </select>
+    <label htmlFor="typeFilter" className={styles.label}>
+      Filter by type
+      <select
+        id="typeFilter"
+        name="typesFilter"
+        onChange={handleFilterChange}
+        className={styles.selectFilter}
+      >
+        <option value="all">all</option>
+        {POKEMONS_TYPES.map((el) => (
+          <option key={el.id} value={el.id}>
+            {el.name}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }
 
